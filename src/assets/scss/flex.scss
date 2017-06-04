@@ -1,0 +1,8 @@
+@mixin flexPosition($jc: center, $ai: center) {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+
+  justify-content: $jc;
+  align-items: $ai;
+}
