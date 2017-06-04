@@ -10,7 +10,7 @@ import * as DB from '@/db'
 export default {
   data () {
     return {
-      movie: {}
+      movie: []
     }
   },
   mounted () {
