@@ -14,34 +14,16 @@
 </template>
 
 <script>
+import * as DB from '@/db'
+
 export default {
   data () {
     return {
-      movies: [
-        {
-          title: 'Love',
-          desc: `a movie`
-        }, {
-          title: 'Love2',
-          desc: `a movie`
-        }, {
-          title: 'Love3',
-          desc: `a movie`
-        }, {
-          title: 'Love4',
-          desc: `a movie`
-        }, {
-          title: 'Love5',
-          desc: `a movie`
-        }, {
-          title: 'Love6',
-          desc: `a movie`
-        }, {
-          title: 'Love7',
-          desc: `a movie`
-        }
-      ]
+      movies: []
     }
+  },
+  mounted () {
+    this.movies = DB.getAllData()
   }
 }
 </script>

@@ -29,3 +29,7 @@ export function getData (n) {
     desc: `not found movie`
   }
 }
+
+export function getAllData () {
+  return movies
+}
