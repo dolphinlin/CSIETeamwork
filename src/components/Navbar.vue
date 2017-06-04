@@ -2,7 +2,7 @@
 <nav>
   <div class="header">
     <ul>
-      <router-link v-for="(link, index) in headerLink" :to="{name: link.name}" tag="li" :key="index" exact>
+      <router-link v-for="(link, index) in headerLink" :to="{name: link.name}" tag="li" :key="index" :exact="link.match">
         <a>{{link.text}}</a>
       </router-link>
     </ul>
@@ -17,7 +17,8 @@ export default {
       headerLink: [
         {
           name: 'Index',
-          text: '首頁'
+          text: '首頁',
+          match: true
         }, {
           name: 'Movies',
           text: '電影總覽'

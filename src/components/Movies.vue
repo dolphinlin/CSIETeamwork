@@ -4,9 +4,9 @@
     <div class="title">{{movie.title}}</div>
     <div class="desc">{{movie.desc}}</div>
   </a> -->
-  <router-link v-for="(movie, index) in movies" :to="'/movies/' + index" class="item" style="background-image: url(https://cn.vuejs.org/images/logo.png)" :key="index">
-    <div class="title">{{movie.title}}</div>
-    <div class="desc">{{movie.desc}}</div>
+  <router-link v-for="(movie, index) in movies" :to="'/movies/' + index" :style="'background-image: url(' + movie.img + ')' " class="item" :key="index">
+    <div class="desc">{{movie.title}}</div>
+    <!-- <img :src="movie.img" alt=""> -->
   </router-link>
   <!-- <div class="item" v-for="movie in movies">
   </div> -->
@@ -37,7 +37,7 @@ export default {
   justify-content: space-around;
 
   .item {
-    @include hw(400px, 400px);
+    @include hw(225px, 400px);
     position: relative;
     text-decoration: none;
     color: #000;
@@ -54,7 +54,7 @@ export default {
       background-color: #ccc;
     }
     &:hover>.desc {
-      height: 40%;
+      height: 25%;
     }
   }
 }

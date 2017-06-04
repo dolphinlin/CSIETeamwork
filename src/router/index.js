@@ -5,6 +5,7 @@ import Hello from '@/components/Hello'
 import MoviesIndex from '@/components/MoviesIndex'
 import Movies from '@/components/Movies'
 import Movie from '@/components/Movie'
+import Seats from '@/components/Seats'
 
 Vue.use(Router)
 
@@ -27,6 +28,10 @@ export default new Router({
           component: Movie
         }
       ]
+    }, {
+      path: '/seats',
+      name: 'Seats',
+      component: Seats
     }
   ],
   mode: 'history'
