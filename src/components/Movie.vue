@@ -1,7 +1,7 @@
 <template lang="html">
 <div class="content">
   <div class="banner">
-    <img src="https://www.in89pier2.com.tw/movie_img/bo2/385/385_big" width="100%" height="100%" alt="">
+    <img :src="movie.cover" width="100%" height="100%" alt="Movie Cover">
   </div>
   <div class="order">
     <div class="btn">
@@ -24,7 +24,10 @@
             </ul>
           </div>
           <div class="tabContent">
-            <li class="list" v-for="d in movie.date[choice.date]"><a href="">{{d}}</a></li>
+            <li class="list" v-for="d in movie.date[choice.date]">
+              <!-- <a href="">{{d}}</a> -->
+              <router-link :to="{name: 'Order', params: {id: $route.params.id}, query: { moviedate: choice.date, movietime: d }}">{{d}}</router-link>
+            </li>
           </div>
         </div>
         <div class="desc">{{movie.desc}}</div>

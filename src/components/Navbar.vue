@@ -22,6 +22,9 @@ export default {
         }, {
           name: 'Movies',
           text: '電影總覽'
+        }, {
+          name: 'Seats',
+          text: '電影座位'
         }
       ]
     }

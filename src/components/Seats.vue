@@ -1,5 +1,8 @@
 <template lang="html">
   <div class="seats">
+    <div class="order">
+      Order - {{$route.query.moviedate}} - {{$route.query.movietime}}
+    </div>
     <table>
       <tbody>
         <tr>
@@ -16,6 +19,9 @@
         </tr>
       </tbody>
     </table>
+    <div class="submit">
+      <button type="button" name="button" @click.prevent="submitOrder">Submit</button>
+    </div>
   </div>
 </template>
 
@@ -57,7 +63,11 @@ export default {
             this.$set(this.orders, s, true)
           }
         }
+        console.log(this.orders)
       }
+    },
+    submitOrder () {
+      this.$set(this, 'globalOrders', this.orders)
     }
   }
 }
