@@ -46,5 +46,6 @@ export default new Router({
       component: Seats
     }
   ],
-  mode: 'history'
+  mode: 'history',
+  base: '/CSIETeamwork/'
 })
