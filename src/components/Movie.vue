@@ -5,7 +5,15 @@
   </div>
   <div class="order">
     <div class="btn">
-      <button>觀賞預告</button>
+      <button id="show-modal" @click="showModal = true">觀賞預告</button>
+      <modal v-show="showModal" @close="showModal = false">
+        <h3 slot="header"></h3>
+        <div class="body" slot="body">
+          <iframe class="video" v-if="showModal"
+                  :src="movie.video" frameborder="0" allowfullscreen>
+          </iframe>
+        </div>
+      </modal>
     </div>
     <div class="btn">
       <button>立即訂票</button>
@@ -39,16 +47,21 @@
 
 <script>
 import * as DB from '@/db'
+import Modal from '@/components/Modal'
 
 export default {
   data () {
     return {
+      showModal: false,
       movie: {},
       choice: {
         date: '',
         time: ''
       }
     }
+  },
+  components: {
+    Modal
   },
   beforeMount () {
     this.movie = DB.getData(this.$route.params.id)
@@ -179,5 +192,9 @@ export default {
       }
     }
   }
+}
+.video {
+  width: 784px;
+  height: 441px;
 }
 </style>
