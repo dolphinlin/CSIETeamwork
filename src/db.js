@@ -13,7 +13,8 @@ const movies = [
       '0603': ['1009', '1150', '1200', '1304'],
       '0604': ['1011', '1100', '1200', '1305']},
     'https://www.in89pier2.com.tw/movie_img/bo2/385/385',
-  'https://www.in89pier2.com.tw/movie_img/bo2/385/385_big'),
+  'https://www.in89pier2.com.tw/movie_img/bo2/385/385_big',
+  'https://www.youtube.com/embed/P9SzcEiAf18?rel=0&amp;showinfo=0'),
   movieFactory('老炮兒', `上映日期：2017-06-02
     發行商：香港商甲上娛樂有限公司台灣分公司
     語言：國語
@@ -31,7 +32,8 @@ const movies = [
       '0605': ['1007', '1120', '1200', '1300'],
       '0606': ['1008', '1145', '1200', '1300']},
     'https://www.in89pier2.com.tw/movie_img/bo2/401/401',
-  'https://www.in89pier2.com.tw/movie_img/bo2/401/401_big'),
+  'https://www.in89pier2.com.tw/movie_img/bo2/401/401_big',
+  'https://www.youtube.com/embed/cI8_ay1E3-k?rel=0&amp;showinfo=0'),
   movieFactory('吃吃的愛', `上映日期：2017-05-27
     發行商：威視股份有限公司
     語言：國語
@@ -47,7 +49,8 @@ const movies = [
       '0605': ['1007', '1120', '1200', '1300'],
       '0606': ['1008', '1145', '1200', '1300']},
     'https://www.in89pier2.com.tw/movie_img/bo2/399/399',
-  'https://www.in89pier2.com.tw/movie_img/bo2/399/399_big'),
+  'https://www.in89pier2.com.tw/movie_img/bo2/399/399_big',
+  'https://www.youtube.com/embed/mdYwHyslpK4?rel=0&amp;showinfo=0'),
   movieFactory('加勒比海盜 神鬼奇航：死無對證', `上映日期：2017-05-24
     發行商：台灣華特迪士尼股份有限公司
     語言：英語
@@ -64,7 +67,8 @@ const movies = [
       '0605': ['1007', '1120', '1200', '1300'],
       '0606': ['1008', '1145', '1200', '1300']},
     'https://www.in89pier2.com.tw/movie_img/bo2/377/377',
-  'https://www.in89pier2.com.tw/movie_img/bo2/377/377_big'),
+  'https://www.in89pier2.com.tw/movie_img/bo2/377/377_big',
+  'https://www.youtube.com/embed/LldnSzk4uD4?rel=0&amp;showinfo=0'),
   movieFactory('為妳唱的歌', `上映日期：2017-05-26
     發行商：東昊影業有限公司
     語言：英語
@@ -81,17 +85,19 @@ const movies = [
       '0605': ['1007', '1120', '1200'],
       '0606': ['1008', '1145', '1200']},
     'https://www.in89pier2.com.tw/movie_img/bo2/383/383',
-  'https://www.in89pier2.com.tw/movie_img/bo2/383/383_big')
+  'https://www.in89pier2.com.tw/movie_img/bo2/383/383_big',
+  'https://www.youtube.com/embed/IQ5pjxQsTmM?rel=0&amp;showinfo=0')
 ]
 
-function movieFactory (title, info, desc, date, img, cover) {
+function movieFactory (title, info, desc, date, img, cover, video) {
   return {
     title,
     info: info.replace(/(\r\n|\n|\r)/gm, '<br />'),
     desc,
     date,
     img,
-    cover
+    cover,
+    video
   }
 }
 
