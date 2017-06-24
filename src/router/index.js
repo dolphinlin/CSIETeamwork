@@ -8,6 +8,8 @@ import Movies from '@/components/Movies'
 import Movie from '@/components/Movie'
 import Seats from '@/components/Seats'
 // import Order from '@/components/Order'
+import BuyTic from '@/components/buyTic'
+import FilmTime from '@/components/filmTime'
 
 Vue.use(Router)
 
@@ -44,6 +46,17 @@ export default new Router({
       path: '/seats',
       name: 'Seats',
       component: Seats
+    }, {
+      path: '/buyTic',
+      name: 'BuyTic',
+      component: BuyTic,
+      children: [
+        {
+          path: 'filmTime',
+          name: 'FilmTime',
+          component: FilmTime
+        }
+      ]
     }
   ],
   mode: 'history',
