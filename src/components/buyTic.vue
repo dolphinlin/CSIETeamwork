@@ -3,17 +3,16 @@
   <div class="book-info">
     <div class="book-step">
       <ul>
-        <li v-for="step in bookStep">{{ step.title }}</li>
+        <li v-for="step in bookStep" :class="{ active: nowPath === step.path }">{{ step.title }}</li>
       </ul>
     </div>
     <router-link to="/buyTic/filmTime"></router-link>
     <router-view></router-view>
   </div>
-  <div class="order">
-    <button class="btn" @click="isActive=1" v-bind:class="{ active: isActive === 1 }">上一步</button>
-    <button class="btn" @click="isActive=2" v-bind:class="{ active: isActive === 2}">重新選擇</button>
-    <button class="btn" @click="isActive=3" v-bind:class="{ active: isActive === 3}">下一步</button>
-  </div>
+  <!-- <div class="order">
+    <button class="btn" v-bind:class="{ active: nowPath === '/buyTic/filmTime' }">上一步</button>
+    <button class="btn" v-bind:class="{ active: nowPath === 3}">下一步</button>
+  </div> -->
 </div>
 </template>
 
@@ -21,16 +20,23 @@
 export default {
   data () {
     return {
-      isActive: 3,
       bookStep: [
-        { title: '選擇電影及場次' },
-        { title: '選擇座位' },
-        { title: '選擇票種' },
-        { title: '選擇付款方式' },
-        { title: '確認訂單' },
+        { title: '選擇電影及場次',
+          path: '/buyTic/'},
+        { title: '選擇座位',
+          path: '/buyTic/seats' },
+        { title: '訂購人資料' },
         { title: '完成購票' }
       ]
     }
+  },
+  computed: {
+    nowPath () {
+      return this.$route.path
+    }
+  },
+  mounted () {
+    console.log(this.$route.path)
   }
 }
 </script>
@@ -68,33 +74,14 @@ export default {
           //padding-right: -2cm;
           width: 189px;
           height: 50px;
+          &.active {
+            background-color: #fed855;
+            color: #000;
+          }
         }
       }
       // flex-grow: 6; /* default 0 */
       // width: 100%;
-    }
-  }
-  .order {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .btn {
-      width: 150px;
-      height: 40px;
-      border: none;
-      //border-color: #fed855;
-      border-radius: 20px;
-      font-size: 16px;
-      color: #fff;
-      font-weight: bold;
-      background-color: #555;
-      cursor: pointer;
-      margin: 30px 15px;
-      outline:none;
-      &.active {
-        background-color: #fed855;
-        color: #000;
-      }
     }
   }
 }

@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="seats">
     <div class="order">
-      Order - {{$route.query.moviedate}} - {{$route.query.movietime}}
+      Order - {{$route.query.moviedate}} - {{$route.query.movietime}} - {{$route.query.movie}}
     </div>
-    <table>
+    <table class="seatTable">
       <tbody>
         <tr>
           <th></th>
@@ -19,8 +19,8 @@
         </tr>
       </tbody>
     </table>
-    <div class="submit">
-      <button type="button" name="button" @click.prevent="submitOrder">Submit</button>
+    <div class="order">
+      <button class="btn" @click.prevent="submitOrder">Submit</button>
     </div>
   </div>
 </template>
@@ -74,7 +74,9 @@ export default {
 </script>
 
 <style lang="scss" scope>
-table {
+@import "./../assets/scss/btn";
+
+table.seatTable {
   border-collapse: collapse;
   height: 600px;
   td {

@@ -1,0 +1,23 @@
+.order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .btn {
+    width: 150px;
+    height: 40px;
+    border: none;
+    //border-color: #fed855;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #555;
+    cursor: pointer;
+    margin: 30px 15px;
+    outline:none;
+    &.active {
+      background-color: #fed855;
+      color: #000;
+    }
+  }
+}

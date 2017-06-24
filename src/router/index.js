@@ -34,27 +34,23 @@ export default new Router({
             {
               path: '',
               component: Movie
-            }, {
-              path: 'order',
-              component: Seats,
-              name: 'Order'
             }
           ]
         }
       ]
-    }, {
-      path: '/seats',
-      name: 'Seats',
-      component: Seats
     }, {
       path: '/buyTic',
       name: 'BuyTic',
       component: BuyTic,
       children: [
         {
-          path: 'filmTime',
+          path: '',
           name: 'FilmTime',
           component: FilmTime
+        }, {
+          path: 'seats',
+          component: Seats,
+          name: 'Seats'
         }
       ]
     }
