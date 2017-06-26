@@ -9,11 +9,6 @@
         </div>
       </div> -->
     </div>
-    <div id="fb-login">
-      <button type="button" name="button" @click.prevent="loginFB">Login FB</button>
-      <button type="button" name="button" @click.prevent="logoutFB">Log out</button>
-      <button type="button" name="button" @click.prevent="getLoginInfo">Login Info</button>
-    </div>
     <transition name="fade" mode="out-in">
         <router-view class="view"></router-view>
     </transition>
