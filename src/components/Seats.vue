@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="seats">
     <div class="order">
-      Order - {{$route.query.moviedate}} - {{$route.query.movietime}} - {{$route.query.movie}}
+      Order - {{movieInfo.movieDate}} - {{movieInfo.movieTime}} - {{movieInfo.movie}}
     </div>
     <table class="seatTable">
       <tbody>
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import Bus from '@/Bus'
+
 export default {
   data () {
     return {
@@ -48,7 +50,13 @@ export default {
           '5-5': true}
       },
       orders: {},
-      seatLater: 'ABCDEF'
+      seatLater: 'ABCDEF',
+      movieInfo: {}
+    }
+  },
+  computed: {
+    validOrders () {
+      return Object.keys(this.orders).filter(o => this.orders[o])
     }
   },
   methods: {
@@ -67,8 +75,13 @@ export default {
       }
     },
     submitOrder () {
-      this.$set(this, 'globalOrders', this.orders)
+      Bus.$emit('send-seats', this.validOrders)
+      this.$router.push({name: 'Customer'})
+      console.log(this.validOrders)
     }
+  },
+  created () {
+    this.$set(this, 'movieInfo', Bus.$data.movieInfo)
   }
 }
 </script>
@@ -81,7 +94,7 @@ table.seatTable {
   height: 600px;
   td {
     min: {
-      width: 100px;
+      width: 95px;
     }
     &.seat {
       border: 1px solid black;

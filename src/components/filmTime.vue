@@ -9,6 +9,7 @@
           <td>
             <div class="selectStyle">
               <select v-model="selectedMovieIndex" @change="selectMovie">
+                <option value="" disabled selected>Select Movie</option>
                 <option v-for="(movie, index) in movies" :value="index">{{movie.title}}</option>
               </select>
             </div>
@@ -17,7 +18,8 @@
         <tr>
           <td>
             <div class="selectStyle">
-              <select name="" id="" v-model="selectedMovieDateObj" @change="selectMovieDate" >
+              <select name="" id="" v-model="selectedMovieDateObj" @change="selectMovieDate">
+                <option value="" disabled selected>Select Date</option>
                 <option v-for="d in selectedMovieDate">{{d}}</option>
               </select>
             </div>
@@ -27,6 +29,7 @@
           <td>
             <div class="selectStyle">
               <select name="" id="" v-model="selectedMovieTimeObj">
+                <option value="" disabled selected>Select Time</option>
                 <option v-for="time in selectedMovieTime">{{time}}</option>
               </select>
             </div>
@@ -35,13 +38,14 @@
       </tbody>
     </table>
     <div class="order">
-      <button class="btn" @click="nextStep" :class="{'active' : selectedMovieTimeObj }">下一步</button>
+      <button class="btn" @click="nextStep" :class="{'active' : selectedMovieTimeObj }">Next</button>
     </div>
   </div>
 </template>
 
 <script>
 import * as DB from '@/db'
+import Bus from '@/Bus'
 
 export default {
   data () {
@@ -68,9 +72,13 @@ export default {
     },
     nextStep () {
       if (this.selectedMovieTimeObj) {
+        Bus.$emit('send-choice', {
+          movieDate: this.selectedMovieDateObj,
+          movieTime: this.selectedMovieTimeObj,
+          movie: this.selectedMovieIndex
+        })
         this.$router.push({
-          name: 'Seats',
-          query: { moviedate: this.selectedMovieDateObj, movietime: this.selectedMovieTimeObj, movie: this.selectedMovieIndex }
+          name: 'Seats'
         })
       } else {
         window.alert('Please select a time.')
@@ -84,22 +92,29 @@ export default {
 @import "./../assets/scss/btn";
 
 .filmPage {
+  width: 1126px;
   .filmTable {
-    border: 1px solid #fed855;
+    border-top: 0;
+    border: 3px solid #fed855;
+    width: 100%;
     border-collapse: collapse;
     .filmPic {
-      width: 180px;
+      width: 25%;
       padding: 10px;
-      border-right: 1px solid #fed855;
+      border-right: 3px solid #fed855;
       img {
-        width: 160px;
+        width: 250px;
       }
     }
     .selectStyle {
-      width: 250px;
+      width: 75%;
       display: block;
       margin: 8px 0;
       line-height: 40px;
+      select {
+        width: 250px;
+        font-size: 15px;
+      }
     }
   }
 }

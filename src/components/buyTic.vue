@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import Bus from '@/Bus'
+
 export default {
   data () {
     return {
@@ -36,7 +38,12 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$route.path)
+    Bus.$on('send-choice', (data) => {
+      Bus.$data.movieInfo = data
+    })
+    Bus.$on('send-seats', (data) => {
+      Bus.$data.orderSeats = data
+    })
   }
 }
 </script>
@@ -50,20 +57,20 @@ export default {
   font-size: 100%;
   vertical-align: baseline;
   .book-info{
-    width: 100%;
-    border: 3px solid #fed855;
-
+    width: 1126px;
     .book-step {
       display: flex;
+      border: 3px solid #fed855;
       margin: 0;
       padding: 0;
       height: 50px;
       color: #fff;
       background-color: #000;
-      border-bottom: 3px solid #fed855;
+
       ul {
         display: flex;
         list-style-type: none;
+        width: 100%;
         padding: 0;
         margin: 0;
         li {
@@ -71,9 +78,8 @@ export default {
           align-items: center;
           justify-content: center;
           background-color: #333;
-          //padding-right: -2cm;
-          width: 189px;
-          height: 50px;
+          width: 100%;
+          //height: 50px;
           &.active {
             background-color: #fed855;
             color: #000;

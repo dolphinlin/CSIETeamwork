@@ -10,6 +10,7 @@ import Seats from '@/components/Seats'
 // import Order from '@/components/Order'
 import BuyTic from '@/components/buyTic'
 import FilmTime from '@/components/filmTime'
+import Customer from '@/components/customer'
 
 Vue.use(Router)
 
@@ -40,7 +41,6 @@ export default new Router({
       ]
     }, {
       path: '/buyTic',
-      name: 'BuyTic',
       component: BuyTic,
       children: [
         {
@@ -51,6 +51,10 @@ export default new Router({
           path: 'seats',
           component: Seats,
           name: 'Seats'
+        }, {
+          path: 'customer',
+          component: Customer,
+          name: 'Customer'
         }
       ]
     }
