@@ -23,8 +23,8 @@ export default {
           name: 'Movies',
           text: '電影總覽'
         }, {
-          name: 'Seats',
-          text: '電影座位'
+          name: 'FilmTime',
+          text: '快速訂票'
         }
       ]
     }
