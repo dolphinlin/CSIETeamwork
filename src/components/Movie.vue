@@ -4,7 +4,7 @@
     <img :src="movie.cover" width="100%" height="100%" alt="Movie Cover">
   </div>
   <div class="order">
-    <div class="btn">
+    <div class="btnM">
       <button id="show-modal" @click="showModal = true">觀賞預告</button>
       <modal v-show="showModal" @close="showModal = false">
         <h3 slot="header"></h3>
@@ -15,7 +15,7 @@
         </div>
       </modal>
     </div>
-    <div class="btn">
+    <div class="btnM">
       <button>立即訂票</button>
     </div>
   </div>
@@ -34,7 +34,7 @@
           <div class="tabContent">
             <li class="list" v-for="d in movie.date[choice.date]">
               <!-- <a href="">{{d}}</a> -->
-              <router-link :to="{name: 'Order', params: {id: $route.params.id}, query: { moviedate: choice.date, movietime: d }}">{{d}}</router-link>
+              <router-link :to="{name: 'Seats', query: { moviedate: choice.date, movietime: d, movie: $route.params.id }}">{{d}}</router-link>
             </li>
           </div>
         </div>
@@ -104,7 +104,7 @@ export default {
       width: 100%;
       height: 100px;
     }
-    .btn>button {
+    .btnM>button {
       font-size: 20px
     }
     border-bottom: 1px solid;
