@@ -11,6 +11,7 @@ import Seats from '@/components/Seats'
 import BuyTic from '@/components/buyTic'
 import FilmTime from '@/components/filmTime'
 import Customer from '@/components/customer'
+import Search from '@/components/Search'
 
 Vue.use(Router)
 
@@ -57,6 +58,10 @@ export default new Router({
           name: 'Customer'
         }
       ]
+    }, {
+      path: '/search',
+      component: Search,
+      name: 'Search'
     }
   ],
   mode: 'history',

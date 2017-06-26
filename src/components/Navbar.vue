@@ -25,6 +25,9 @@ export default {
         }, {
           name: 'FilmTime',
           text: '快速訂票'
+        }, {
+          name: 'Search',
+          text: '查詢訂票'
         }
       ]
     }

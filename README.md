@@ -18,4 +18,7 @@ npm run build
 npm run build --report
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Team Member
+
+- B10223001 林楷倫
+- B10223056 黃俊杰

@@ -37,12 +37,15 @@ export default {
       return this.$route.path
     }
   },
-  mounted () {
+  created () {
     Bus.$on('send-choice', (data) => {
       Bus.$data.movieInfo = data
     })
     Bus.$on('send-seats', (data) => {
       Bus.$data.orderSeats = data
+    })
+    Bus.$on('send-orderInfo', (data) => {
+      Bus.$data.orderInfo = data
     })
   }
 }

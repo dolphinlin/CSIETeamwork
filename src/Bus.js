@@ -1,3 +1,9 @@
 import Vue from 'vue'
 
-export default new Vue()
+let Bus = new Vue()
+
+Bus.$data.orderInfo = []
+Bus.$data.movieInfo = {}
+Bus.$data.orderSeats = {}
+
+export default Bus
